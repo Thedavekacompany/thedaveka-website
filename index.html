@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TheDaveka Technologies — AI systems built to watch what matters</title>
+<meta name="description" content="TheDaveka Technologies builds AI agents that guard your money and run your business. Based in Lagos, Nigeria.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #05070d;
+    --bg-panel: #0a1120;
+    --bg-panel-2: #0c1424;
+    --rule: rgba(111,168,255,0.16);
+    --rule-strong: rgba(111,168,255,0.32);
+    --electric: #2f6bff;
+    --electric-bright: #6fa8ff;
+    --glow: rgba(47,107,255,0.35);
+    --live: #ffb020;
+    --text: #eef2fa;
+    --text-muted: #93a0b8;
+    --text-faint: #57607a;
+    --max: 1120px;
+  }
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0; background: var(--bg); color: var(--text);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, .wordmark{ font-family: 'Space Grotesk', sans-serif; margin: 0; letter-spacing: -0.01em; }
+  a{ color: inherit; text-decoration: none; }
+  .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+  .ambient{
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      radial-gradient(700px 480px at 82% -8%, rgba(47,107,255,0.16), transparent 60%),
+      radial-gradient(600px 420px at -6% 40%, rgba(47,107,255,0.08), transparent 60%);
+  }
+  header, main, footer{ position: relative; z-index: 1; }
+  header{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 26px 28px; max-width: var(--max); margin: 0 auto;
+  }
+  .wordmark{ font-size: 19px; font-weight: 600; color: var(--text); display:flex; align-items:center; gap: 10px; }
+  .wordmark span{ color: var(--electric-bright); }
+  nav.links{ display:flex; align-items:center; gap: 34px; }
+  nav.links a{ font-size: 14.5px; color: var(--text-muted); transition: color .15s ease; }
+  nav.links a:hover{ color: var(--text); }
+  nav.links a.cta{ color: var(--bg); background: var(--electric-bright); padding: 9px 18px; border-radius: 3px; font-weight: 500; }
+  nav.links a.cta:hover{ background: #85b6ff; }
+  .nav-toggle{ display:none; background:none; border:none; color: var(--text); font-size: 22px; cursor:pointer; }
+  .hero{
+    max-width: var(--max); margin: 0 auto; padding: 64px 28px 90px;
+    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center;
+  }
+  .hero h1{ font-size: clamp(34px, 4.6vw, 54px); font-weight: 600; line-height: 1.12; color: var(--text); }
+  .hero p.lede{ margin-top: 22px; max-width: 46ch; color: var(--text-muted); font-size: 17px; line-height: 1.65; }
+  .hero .actions{ margin-top: 34px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn{ display: inline-block; padding: 13px 22px; border-radius: 3px; font-size: 14.5px; font-weight: 500; transition: all .15s ease; cursor: pointer; border: none; font-family: inherit; }
+  .btn-primary{ background: var(--electric); color: #fff; box-shadow: 0 0 0 1px var(--electric), 0 8px 24px -8px var(--glow); }
+  .btn-primary:hover{ background: var(--electric-bright); box-shadow: 0 0 0 1px var(--electric-bright), 0 8px 28px -6px var(--glow); }
+  .btn-ghost{ color: var(--text); box-shadow: 0 0 0 1px var(--rule-strong); background: transparent; }
+  .btn-ghost:hover{ box-shadow: 0 0 0 1px var(--electric-bright); }
+  .btn-small{ padding: 9px 16px; font-size: 13px; }
+  .hero .locale{ margin-top: 30px; font-size: 13px; color: var(--text-faint); display:flex; align-items:center; gap: 8px; }
+  .dot{ width:6px; height:6px; border-radius:50%; background: var(--live); display:inline-block; flex-shrink:0; }
+  .signal{ position: relative; height: 260px; }
+  .signal svg{ width: 100%; height: 100%; display:block; }
+  .signal-line{ fill:none; stroke: var(--electric-bright); stroke-width: 1.6; stroke-linecap: round; stroke-dasharray: 900; stroke-dashoffset: 900; animation: draw 2.2s ease-out forwards; }
+  .rail{ stroke: var(--rule-strong); stroke-width: 1; }
+  @keyframes draw{ to{ stroke-dashoffset: 0; } }
+  @media (prefers-reduced-motion: reduce){ .signal-line{ animation: none; stroke-dashoffset: 0; } }
+  section{ max-width: var(--max); margin: 0 auto; padding: 84px 28px; border-top: 1px solid var(--rule); }
+  section > .head{ display:flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 46px; }
+  section h2{ font-size: clamp(24px, 3vw, 32px); font-weight: 600; }
+  section .head p{ color: var(--text-muted); max-width: 38ch; font-size: 15px; margin: 10px 0 0; }
+  .about-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+  .about-grid p{ color: var(--text-muted); font-size: 16px; max-width: 52ch; }
+  .facts{ display:flex; flex-direction: column; gap: 20px; padding-left: 22px; border-left: 1px solid var(--rule); }
+  .facts dt{ font-size: 12.5px; color: var(--text-faint); margin-bottom: 3px; }
+  .facts dd{ margin:0; font-size: 15.5px; color: var(--text); }
+  .product-list{ border-top: 1px solid var(--rule); }
+  .product{ display: grid; grid-template-columns: 220px 1fr auto; gap: 32px; align-items: center; padding: 30px 0; border-bottom: 1px solid var(--rule); position: relative; }
+  .product .name{ display:flex; align-items:center; gap: 10px; font-size: 19px; font-weight: 600; }
+  .status{ font-size: 11.5px; font-weight: 500; padding: 4px 9px; border-radius: 2px; letter-spacing: 0.02em; }
+  .status.live{ color: var(--live); box-shadow: inset 0 0 0 1px rgba(255,176,32,0.4); }
+  .status.soon{ color: var(--text-faint); box-shadow: inset 0 0 0 1px var(--rule-strong); }
+  .product .desc{ color: var(--text-muted); font-size: 15px; max-width: 54ch; }
+  .product .desc .meta{ display:block; margin-top: 6px; color: var(--text-faint); font-size: 13px; }
+  .product .action{ display:flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+  .product .action a, .product .action button{ font-size: 14px; color: var(--electric-bright); white-space: nowrap; background:none; }
+  .product .action a:hover, .product .action button:hover{ color: #fff; }
+  .product.dim .name, .product.dim .desc{ color: var(--text-faint); }
+  .product.dim .name{ color: var(--text-muted); }
+  .sentinel-charts{ position: absolute; right: 0; top: 0; bottom: 0; width: 260px; opacity: 0.16; pointer-events: none; overflow: hidden; display:flex; }
+  .sentinel-charts img{ height: 100%; width: auto; object-fit: cover; }
+  @media (max-width: 860px){ .sentinel-charts{ display:none; } }
+  .contact-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+  .contact-grid p{ color: var(--text-muted); font-size: 16px; max-width: 44ch; }
+  .contact-list{ list-style:none; margin:0; padding:0; }
+  .contact-list li{ padding: 16px 0; border-bottom: 1px solid var(--rule); display:flex; justify-content: space-between; gap: 20px; }
+  .contact-list li:first-child{ padding-top: 0; }
+  .contact-list .label{ color: var(--text-faint); font-size: 13px; }
+  .contact-list .value{ font-size: 15.5px; text-align:right; }
+  .contact-list a.value:hover{ color: var(--electric-bright); }
+  footer{ border-top: 1px solid var(--rule); }
+  footer .wrap{ padding: 30px 28px; display:flex; justify-content: space-between; align-items:center; font-size: 13px; color: var(--text-faint); }
+  .footer-brand{ display:flex; align-items:center; gap:8px; }
+  .footer-mark{ height:16px; width:auto; opacity:0.8; }
+
+  /* Modal */
+  .modal-overlay{
+    position: fixed; inset: 0; z-index: 50; background: rgba(2,3,7,0.72);
+    display: none; align-items: flex-start; justify-content: center;
+    padding: 60px 20px; overflow-y: auto; backdrop-filter: blur(3px);
+  }
+  .modal-overlay.open{ display: flex; }
+  .modal{
+    background: var(--bg-panel); border: 1px solid var(--rule-strong); border-radius: 6px;
+    max-width: 640px; width: 100%; padding: 40px 36px 36px; position: relative;
+    box-shadow: 0 30px 80px -20px rgba(0,0,0,0.6);
+    animation: modalIn .25s ease-out;
+  }
+  @keyframes modalIn{ from{ opacity:0; transform: translateY(8px);} to{opacity:1; transform:translateY(0);} }
+  @media (prefers-reduced-motion: reduce){ .modal{ animation: none; } }
+  .modal-close{
+    position: absolute; top: 20px; right: 20px; background: none; border: none;
+    color: var(--text-faint); font-size: 22px; cursor: pointer; line-height: 1; padding: 4px;
+  }
+  .modal-close:hover{ color: var(--text); }
+  .modal .status.live{ display:inline-block; margin-bottom: 14px; }
+  .modal h3{ font-size: 26px; font-weight: 600; margin-bottom: 6px; }
+  .modal .sub{ color: var(--text-muted); font-size: 15px; margin-bottom: 28px; }
+  .modal h4{
+    font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 600;
+    color: var(--electric-bright); text-transform: uppercase; letter-spacing: 0.06em;
+    margin: 26px 0 10px;
+  }
+  .modal h4:first-of-type{ margin-top: 0; }
+  .modal p{ color: var(--text-muted); font-size: 15px; line-height: 1.65; margin: 0; }
+  .modal ul{ margin: 0; padding-left: 20px; color: var(--text-muted); font-size: 15px; line-height: 1.7; }
+  .modal ul li{ margin-bottom: 6px; }
+  .modal ol{ margin: 0; padding-left: 20px; color: var(--text-muted); font-size: 15px; line-height: 1.7; }
+  .modal ol li{ margin-bottom: 8px; }
+  .modal ol li strong{ color: var(--text); }
+
+  @media (max-width: 860px){
+    nav.links{
+      position: fixed; inset: 64px 0 0 0; background: var(--bg); flex-direction: column;
+      align-items: flex-start; padding: 30px 28px; gap: 22px; border-top: 1px solid var(--rule);
+      transform: translateY(-8px); opacity: 0; pointer-events: none; transition: all .18s ease;
+    }
+    nav.links.open{ opacity:1; pointer-events:auto; transform: translateY(0); }
+    .nav-toggle{ display:block; }
+    .hero{ grid-template-columns: 1fr; padding-top: 40px; }
+    .signal{ order:-1; height: 180px; }
+    .about-grid, .contact-grid{ grid-template-columns: 1fr; gap: 40px; }
+    .facts{ border-left:none; border-top: 1px solid var(--rule); padding-left:0; padding-top: 22px; }
+    .product{ grid-template-columns: 1fr; gap: 10px; }
+    .product .action{ align-items: flex-start; margin-top: 4px; }
+    section{ padding: 60px 24px; }
+    section > .head{ flex-direction:column; align-items:flex-start; }
+    .modal{ padding: 30px 22px 26px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="ambient"></div>
+
+<header>
+  <a href="#top" class="wordmark">The<span>daveka</span></a>
+  <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('nav.links').classList.toggle('open')">&#9776;</button>
+  <nav class="links">
+    <a href="#products">Products</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="cta">Get in touch</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <div class="hero">
+    <div>
+      <h1>We build the systems that watch your blind spots.</h1>
+      <p class="lede">TheDaveka Technologies designs AI agents that guard your money and run your business — built in Lagos, for Africa's traders, operators and builders.</p>
+      <div class="actions">
+        <a href="#products" class="btn btn-primary">See what we're building</a>
+        <a href="#contact" class="btn btn-ghost">Talk to us</a>
+      </div>
+      <div class="locale"><span class="dot"></span> Building from Lagos, Nigeria</div>
+    </div>
+
+    <div class="signal">
+      <svg viewBox="0 0 400 260" preserveAspectRatio="xMidYMid meet">
+        <line class="rail" x1="20" y1="60" x2="20" y2="200"></line>
+        <line class="rail" x1="380" y1="60" x2="380" y2="200"></line>
+        <path class="signal-line" d="M 20 130 L 90 130 L 115 60 L 150 200 L 180 40 L 210 220 L 245 130 L 300 130 L 320 100 L 340 130 L 380 130"></path>
+      </svg>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="head"><h2>Why this exists</h2></div>
+    <div class="about-grid">
+      <p>Most people building wealth or running a business here do it without a safety net — no one watching the trade that's about to go wrong, no one catching the customer message that slips through at 11pm. TheDaveka builds the AI layer that does. We're registered and based in Lagos, working with one direction: give people and businesses an intelligence that never stops watching, so they can focus on the decision that actually needs them.</p>
+      <dl class="facts">
+        <div><dt>Company</dt><dd>TheDaveka Technologies</dd></div>
+        <div><dt>Registered</dt><dd>Nigeria (CAC)</dd></div>
+        <div><dt>Based in</dt><dd>Lagos, Nigeria</dd></div>
+        <div><dt>Focus</dt><dd>AI agents for wealth &amp; business operations</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="products">
+    <div class="head">
+      <h2>What we're building</h2>
+      <p>One system live, two more on the way.</p>
+    </div>
+
+    <div class="product-list">
+      <div class="product">
+        <div class="sentinel-charts">
+          <img src="chart1.png" alt="">
+          <img src="chart2.png" alt="">
+        </div>
+        <div class="name">The Sentinel <span class="status live">Live</span></div>
+        <div class="desc">An AI agent that puts guardrails around your trading and investing decisions — a hybrid of the rules you set and AI judgment, built to catch the moves your emotions would make for you.
+          <span class="meta">Starter and Pro plans available</span>
+        </div>
+        <div class="action">
+          <a href="#contact">Get Sentinel &rarr;</a>
+          <button class="btn btn-ghost btn-small" onclick="document.getElementById('sentinel-modal').classList.add('open'); document.body.style.overflow='hidden';">About</button>
+        </div>
+      </div>
+
+      <div class="product dim">
+        <div class="name">AI Assistant <span class="status soon">Coming soon</span></div>
+        <div class="desc">An assistant that runs your business through conversation — enquiries, bookings, follow-ups — instead of another dashboard to manage.</div>
+        <div class="action"></div>
+      </div>
+
+      <div class="product dim">
+        <div class="name">The Stream <span class="status soon">Coming soon</span></div>
+        <div class="desc">Our next system. Details soon.</div>
+        <div class="action"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="head"><h2>Get in touch</h2></div>
+    <div class="contact-grid">
+      <p>Questions about Sentinel, a partnership, or anything else — reach us directly. We're a small team in Lagos and read everything that comes in.</p>
+      <ul class="contact-list">
+        <li><span class="label">Location</span><span class="value">Lagos, Nigeria</span></li>
+        <li><span class="label">Phone</span><a class="value" href="tel:+2348081088007">0808 108 8007</a></li>
+        <li><span class="label">Email</span><a class="value" href="mailto:davecompany@gmail.com">davecompany@gmail.com</a></li>
+        <li><span class="label">Instagram</span><a class="value" href="https://instagram.com/Davekacompany" target="_blank" rel="noopener">@Davekacompany</a></li>
+        <li><span class="label">Facebook</span><a class="value" href="https://facebook.com/Daveka" target="_blank" rel="noopener">Daveka</a></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="footer-brand">&copy; 2026 TheDaveka Technologies</span>
+    <span>Registered in Nigeria &middot; Lagos</span>
+  </div>
+</footer>
+
+<!-- Sentinel About Modal -->
+<div class="modal-overlay" id="sentinel-modal" onclick="if(event.target===this){this.classList.remove('open'); document.body.style.overflow='';}">
+  <div class="modal">
+    <button class="modal-close" aria-label="Close" onclick="document.getElementById('sentinel-modal').classList.remove('open'); document.body.style.overflow='';">&times;</button>
+    <span class="status live">Live</span>
+    <h3>The Sentinel</h3>
+    <p class="sub">An AI wealth guardrail agent, built to catch the moves your emotions would make for you.</p>
+
+    <h4>What it is</h4>
+    <p>Sentinel connects to your brokerage account and watches every trade against limits you set — combining hard rules with AI judgment, rather than relying on either alone. It doesn't trade for you; it catches the decisions you'd regret before they happen.</p>
+
+    <h4>How to use it</h4>
+    <ol>
+      <li><strong>Connect your brokerage</strong> — one-time link to your existing account.</li>
+      <li><strong>Set your guardrails</strong> — a per-transaction limit, a monthly allowance, and whether new asset classes are locked.</li>
+      <li><strong>Let it watch</strong> — Sentinel monitors continuously, no manual checking required.</li>
+      <li><strong>Review the log</strong> — every approved or blocked action comes with a plain-language reason.</li>
+    </ol>
+
+    <h4>Benefits</h4>
+    <ul>
+      <li>Removes emotional decision-making from high-stakes moments</li>
+      <li>Full transparency — every action logged with its reasoning</li>
+      <li>Works alongside you, not instead of you — you set the limits, it enforces them</li>
+      <li>Scales from a single guardrail to full portfolio-wide discipline</li>
+    </ul>
+
+    <h4>Qualities</h4>
+    <ul>
+      <li>Hybrid intelligence — hard rules and AI judgment together, not one or the other</li>
+      <li>Built for real accounts, with a live brokerage connection</li>
+      <li>Always-on monitoring, nothing to remember to check</li>
+      <li>Designed in Lagos for traders and operators who don't have a safety net</li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>
