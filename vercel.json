@@ -15,5 +15,16 @@
       "destination": "https://identity-guardian--davekacompany.replit.app",
       "permanent": false
     }
+  ],
+  "headers": [
+    {
+      "source": "/brand/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    }
   ]
 }
