@@ -1,0 +1,19 @@
+{
+  "redirects": [
+    {
+      "source": "/app",
+      "destination": "https://identity-guardian--davekacompany.replit.app",
+      "permanent": false
+    },
+    {
+      "source": "/app/:path*",
+      "destination": "https://identity-guardian--davekacompany.replit.app/app/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/sentinel",
+      "destination": "https://identity-guardian--davekacompany.replit.app",
+      "permanent": false
+    }
+  ]
+}
