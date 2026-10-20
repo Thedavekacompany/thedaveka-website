@@ -115,6 +115,26 @@
   .footer-brand{ display:flex; align-items:center; gap:8px; }
   .footer-mark{ height:16px; width:auto; opacity:0.8; }
 
+  .footer-links{ display:flex; gap:18px; flex-wrap:wrap; align-items:center; }
+  .footer-links a{ color: var(--text-muted); }
+  .footer-links a:hover{ color: var(--text); }
+  .faq-tabs{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom: 22px; }
+  .faq-tab{ background:none; border:none; font-family:inherit; font-size:14px; color: var(--text-muted); padding: 8px 14px; border-radius: 3px; box-shadow: inset 0 0 0 1px var(--rule-strong); cursor:pointer; }
+  .faq-tab:hover{ color: var(--text); }
+  .faq-tab.on{ color: var(--bg); background: var(--electric-bright); box-shadow:none; }
+  .faq-group{ display:none; border-top: 1px solid var(--rule); }
+  .faq-group.on{ display:block; }
+  .faq-group details{ border-bottom: 1px solid var(--rule); padding: 18px 0; }
+  .faq-group summary{ cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size: 17px; font-weight: 500; list-style:none; display:flex; justify-content:space-between; gap:20px; }
+  .faq-group summary::-webkit-details-marker{ display:none; }
+  .faq-group summary::after{ content:'+'; color: var(--electric-bright); font-size: 20px; line-height:1; }
+  .faq-group details[open] summary::after{ content:'\2212'; }
+  .faq-group details p, .faq-group details ul{ color: var(--text-muted); font-size: 15px; max-width: 72ch; margin: 12px 0 0; }
+  .faq-group details ul{ padding-left: 20px; }
+  .faq-group details a{ color: var(--electric-bright); }
+  .faq-group details strong{ color: var(--text); }
+  @media (max-width: 860px){ footer .wrap{ flex-direction:column; align-items:flex-start; gap:12px; } }
+
   /* Modal */
   .modal-overlay{
     position: fixed; inset: 0; z-index: 50; background: rgba(2,3,7,0.72);
@@ -181,6 +201,7 @@
   <nav class="links">
     <a href="#products">Products</a>
     <a href="#about">About</a>
+    <a href="#faq">FAQ</a>
     <a href="#contact">Contact</a>
     <a href="#contact" class="cta">Get in touch</a>
   </nav>
@@ -214,8 +235,9 @@
       <p>Most people building wealth or running a business here do it without a safety net — no one watching the trade that's about to go wrong, no one catching the customer message that slips through at 11pm. TheDaveka builds the AI layer that does. We're registered and based in Lagos, working with one direction: give people and businesses an intelligence that never stops watching, so they can focus on the decision that actually needs them.</p>
       <dl class="facts">
         <div><dt>Company</dt><dd>TheDaveka Technologies</dd></div>
-        <div><dt>Registered</dt><dd>Nigeria (CAC)</dd></div>
-        <div><dt>Based in</dt><dd>Lagos, Nigeria</dd></div>
+        <div><dt>Registered</dt><dd>Corporate Affairs Commission, Nigeria &middot; BN 9784117</dd></div>
+        <div><dt>Founder &amp; CEO</dt><dd>David Igbeka</dd></div>
+        <div><dt>Address</dt><dd>No 12, Memunat Shitta Street, Ologolo, Lekki, Lagos</dd></div>
         <div><dt>Focus</dt><dd>AI agents for wealth &amp; business operations</dd></div>
       </dl>
     </div>
@@ -234,8 +256,8 @@
           <img src="https://backend.composio.dev/api/v3/sl/f18t-yPF2W" alt="">
         </div>
         <div class="name">The Sentinel <span class="status live">Live</span></div>
-        <div class="desc">An AI agent that puts guardrails around your trading and investing decisions — a hybrid of the rules you set and AI judgment, built to catch the moves your emotions would make for you.
-          <span class="meta">Starter and Pro plans available</span>
+        <div class="desc">A discipline tool for traders: an emotional circuit-breaker. You set your limits when you're calm, and Sentinel holds you to them when emotions run high. It connects to your own exchange or broker account, <strong style="color:var(--text)">never holds your money and can't withdraw it</strong>.
+          <span class="meta">Starter, Pro and Discipline plans &middot; from &#8358;12,000 / $9 a month &middot; 30-day Founding Member trial</span>
         </div>
         <div class="action">
           <a class="btn btn-primary btn-small" href="/app">Open Sentinel &rarr;</a>
@@ -244,8 +266,8 @@
       </div>
 
       <div class="product dim">
-        <div class="name">AI Assistant <span class="status soon">Coming soon</span></div>
-        <div class="desc">An assistant that runs your business through conversation — enquiries, bookings, follow-ups — instead of another dashboard to manage.</div>
+        <div class="name">VEKA <span class="status soon">Coming soon</span></div>
+        <div class="desc">An AI receptionist that runs your business through conversation — enquiries, bookings, follow-ups — instead of another dashboard to manage.</div>
         <div class="action"></div>
       </div>
 
@@ -262,12 +284,84 @@
     <div class="contact-grid">
       <p>Questions about Sentinel, a partnership, or anything else — reach us directly. We're a small team in Lagos and read everything that comes in.</p>
       <ul class="contact-list">
-        <li><span class="label">Location</span><span class="value">Lagos, Nigeria</span></li>
+        <li><span class="label">Address</span><span class="value">No 12, Memunat Shitta Street, Ologolo, Lekki, Lagos</span></li>
         <li><span class="label">Phone</span><a class="value" href="tel:+2348081088007">0808 108 8007</a></li>
         <li><span class="label">Email</span><a class="value" href="mailto:hello@thedaveka.com">hello@thedaveka.com</a></li>
+        <li><span class="label">Customer support</span><a class="value" href="mailto:support@thedaveka.com">support@thedaveka.com</a></li>
         <li><span class="label">Instagram</span><a class="value" href="https://instagram.com/Davekacompany" target="_blank" rel="noopener">@Davekacompany</a></li>
         <li><span class="label">Facebook</span><a class="value" href="https://facebook.com/Daveka" target="_blank" rel="noopener">Daveka</a></li>
       </ul>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="head">
+      <h2>Frequently asked questions</h2>
+      <p>Straight answers about TheDaveka and our products. Can't find yours? Email support@thedaveka.com.</p>
+    </div>
+
+    <div class="faq-tabs" role="tablist">
+      <button class="faq-tab on" data-tab="faq-sentinel">The Sentinel</button>
+      <button class="faq-tab" data-tab="faq-billing">Plans &amp; billing</button>
+      <button class="faq-tab" data-tab="faq-veka">VEKA</button>
+      <button class="faq-tab" data-tab="faq-general">About TheDaveka</button>
+    </div>
+
+    <div class="faq-group on" id="faq-sentinel">
+      <details open><summary>What exactly is the Sentinel?</summary>
+        <p>A discipline tool for traders: think of it as an emotional circuit-breaker. You set your own limits while you're calm (how much per trade, how much per month, which assets you're allowed to buy), and Sentinel holds you to them on the days fear, greed or revenge-trading take over. It connects to your own exchange or broker account and checks trades against your limits.</p></details>
+      <details><summary>Does Sentinel hold my money?</summary>
+        <p><strong>No. Never.</strong> Your money stays in your own exchange or broker account the whole time. Sentinel is software that connects to that account; it is not a wallet, bank, broker or fund, and we never receive, hold or manage your funds.</p></details>
+      <details><summary>Can Sentinel withdraw or move my money out?</summary>
+        <p><strong>No.</strong> Sentinel refuses any API key that has withdrawal permission. Where an exchange can't tell us a key's permissions, you must confirm the key can't withdraw before Sentinel will accept it. For MetaTrader, Sentinel only uses your read-only investor password. Even in the worst case, a Sentinel connection can't send your money anywhere.</p></details>
+      <details><summary>Does Sentinel place trades for me?</summary>
+        <p>Only if you allow it, and only inside your limits. You choose the access level when you connect:</p>
+        <ul>
+          <li><strong>Read-only:</strong> Sentinel watches your account and alerts you. It cannot place trades.</li>
+          <li><strong>Trading access:</strong> Sentinel can place trades you approve with one tap. If you also switch on <strong>Autopilot</strong> (off by default), it may place at most one trade a day on its own, still inside every limit you've set.</li>
+        </ul>
+        <p>Any trade above your confirmation amount always waits for your fingerprint or passkey.</p></details>
+      <details><summary>Can Sentinel stop me from trading in my broker's own app?</summary>
+        <p>No, and we want to be upfront about that. Sentinel can't block a trade you place directly in your exchange or broker's own app or website. What it does is check your account for those trades and email you if one breaks your limits, so you see it straight away instead of finding out at the end of the month.</p></details>
+      <details><summary>Is Sentinel investment advice? Will it make me money?</summary>
+        <p>No and no. Sentinel's recommendations are generated automatically from market data and your own rules. They're not personal investment advice, and Sentinel doesn't predict markets or guarantee profits. Its job is to protect you from your worst decisions, not to promise returns. Trading is risky and you can lose money. See our <a href="/risk">Risk Disclosure</a>.</p></details>
+      <details><summary>Which exchanges and brokers does it work with?</summary>
+        <p>Through SnapTrade: Coinbase, Binance, Kraken, Alpaca, Robinhood, Webull and many more. By API key: KuCoin, Luno and Quidax. Monitoring only: MetaTrader 4/5 brokers such as Exness, HFM and FXTM, and Deriv. The full, current list is on the connect screen in the app.</p></details>
+      <details><summary>What happens if Sentinel goes offline?</summary>
+        <p>Nothing happens to your money. Your exchange or broker account keeps working normally; Sentinel just can't monitor or alert until it's back. It doesn't sit between you and your account.</p></details>
+      <details><summary>How is my data protected?</summary>
+        <p>API keys are encrypted before they're stored, passwords are stored only as one-way hashes, all traffic uses HTTPS, and you can protect your account with a fingerprint or passkey. We never sell your data. See our <a href="/privacy">Privacy Policy</a>.</p></details>
+      <details><summary>Who is Sentinel for?</summary>
+        <p>Retail traders and investors in crypto, stocks and forex who know their own rules but sometimes break them in the moment, in Nigeria and worldwide.</p></details>
+    </div>
+
+    <div class="faq-group" id="faq-billing">
+      <details open><summary>How much does Sentinel cost?</summary>
+        <p><strong>Starter</strong> ₦12,000 / $9 a month · <strong>Pro</strong> ₦40,000 / $29 a month · <strong>Discipline</strong> ₦90,000 / $69 a month. Starter covers your guardrails, one-tap recommendations, optional Autopilot and alerts. Pro adds an AI agent that explains every recommendation in plain language. Discipline adds staged plans that complete large trades in safe steps.</p></details>
+      <details><summary>Is there a free trial?</summary>
+        <p>Yes. Founding Members can start a 30-day free trial with no card required. Founding Members on US-dollar pricing also keep the price they started on for as long as they stay subscribed.</p></details>
+      <details><summary>How do I pay?</summary>
+        <p>Naira payments go through Paystack (card, bank transfer and other local options). International card payments in US dollars are being added through Flutterwave. We never see or store your card details.</p></details>
+      <details><summary>Can I cancel anytime? Do you give refunds?</summary>
+        <p>You can cancel anytime in the app (Plans → "Update card or cancel subscription") or by emailing us. You keep access until the end of the month you've paid for and won't be charged again. Payments are non-refundable, except where the law requires it or you were charged in error. Full details: <a href="/refunds">Cancellation &amp; Refund Policy</a>.</p></details>
+      <details><summary>Can I change plans?</summary>
+        <p>Yes. Email support@thedaveka.com and we'll move you to the plan you want, without double-charging you.</p></details>
+      <details><summary>How do I close my account?</summary>
+        <p>Email support@thedaveka.com from your account's email address and we'll close it and delete your data, except records we must keep by law.</p></details>
+    </div>
+
+    <div class="faq-group" id="faq-veka">
+      <details open><summary>What is VEKA?</summary>
+        <p>VEKA is our upcoming AI receptionist for businesses. Details and FAQs will be added here when it launches.</p></details>
+    </div>
+
+    <div class="faq-group" id="faq-general">
+      <details open><summary>Who is TheDaveka?</summary>
+        <p>TheDaveka Technologies is a Nigerian technology company registered with the Corporate Affairs Commission (Business Name No. 9784117), founded and run by David Igbeka and based in Lekki, Lagos. We build AI systems that guard people's money and run businesses.</p></details>
+      <details><summary>Is TheDaveka a broker, bank or investment company?</summary>
+        <p>No. We make software. We don't hold customer money, take deposits, manage investments or give investment advice.</p></details>
+      <details><summary>How do I contact you?</summary>
+        <p>Email support@thedaveka.com for help with Sentinel, or hello@thedaveka.com for anything else. Call 0808 108 8007, or write to No 12, Memunat Shitta Street, Ologolo, Lekki, Lagos.</p></details>
     </div>
   </section>
 
@@ -276,7 +370,7 @@
 <footer>
   <div class="wrap">
     <span class="footer-brand">&copy; 2026 TheDaveka Technologies</span>
-    <span>Registered in Nigeria &middot; Lagos</span>
+    <span class="footer-links"><a href="/terms">Terms</a><a href="/privacy">Privacy</a><a href="/risk">Risk disclosure</a><a href="/refunds">Refunds</a><span>CAC BN 9784117 &middot; Lagos</span></span>
   </div>
 </footer>
 
@@ -286,10 +380,26 @@
     <button class="modal-close" aria-label="Close" onclick="document.getElementById('sentinel-modal').classList.remove('open'); document.body.style.overflow='';">&times;</button>
     <span class="status live">Live</span>
     <h3>The Sentinel</h3>
-    <p class="sub">An AI wealth guardrail agent, built to catch the moves your emotions would make for you.</p>
+    <p class="sub">A discipline tool for traders, built to catch the moves your emotions would make for you.</p>
 
     <h4>What it is</h4>
-    <p>Sentinel connects to your brokerage account and watches every trade against limits you set — combining hard rules with AI judgment, rather than relying on either alone. It doesn't trade for you; it catches the decisions you'd regret before they happen.</p>
+    <p>Sentinel is an emotional circuit-breaker. You set your own limits while you're calm: how much per trade, how much per month, which assets you're allowed to buy. Sentinel connects to your own exchange or broker account and holds you to those limits, combining hard rules with AI judgment.</p>
+
+    <h4>What it does</h4>
+    <ul>
+      <li>Reads your balances, holdings and trades, with your permission</li>
+      <li>With read-only access, monitors your account and alerts you</li>
+      <li>With trading access, places trades you approve, or Autopilot trades if you switch it on (at most one a day), <strong>only inside your limits</strong></li>
+      <li>Emails you when a trade made outside Sentinel breaks your limits</li>
+    </ul>
+
+    <h4>What it never does</h4>
+    <ul>
+      <li><strong>Never holds your money.</strong> Your funds stay with your exchange or broker</li>
+      <li><strong>Never withdraws or moves money out.</strong> It refuses API keys that can withdraw</li>
+      <li>Doesn't give investment advice or promise profits</li>
+      <li>Can't stop a trade you place directly in your broker's own app (it alerts you instead)</li>
+    </ul>
 
     <h4>How to use it</h4>
     <ol>
@@ -319,5 +429,11 @@
   </div>
 </div>
 
+<script>
+document.querySelectorAll('.faq-tab').forEach(function(b){b.addEventListener('click',function(){
+  document.querySelectorAll('.faq-tab').forEach(function(x){x.classList.toggle('on',x===b)});
+  document.querySelectorAll('.faq-group').forEach(function(g){g.classList.toggle('on',g.id===b.dataset.tab)});
+});});
+</script>
 </body>
 </html>
