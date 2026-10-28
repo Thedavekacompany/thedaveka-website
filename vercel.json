@@ -2,17 +2,17 @@
   "redirects": [
     {
       "source": "/app",
-      "destination": "https://identity-guardian--davekacompany.replit.app",
+      "destination": "https://app.thedaveka.com",
       "permanent": false
     },
     {
       "source": "/app/:path*",
-      "destination": "https://identity-guardian--davekacompany.replit.app/app/:path*",
+      "destination": "https://app.thedaveka.com/app/:path*",
       "permanent": false
     },
     {
       "source": "/sentinel",
-      "destination": "https://identity-guardian--davekacompany.replit.app",
+      "destination": "https://app.thedaveka.com",
       "permanent": false
     }
   ],
